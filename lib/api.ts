@@ -15,7 +15,7 @@ const axiosParams = (
 ) => ({
   params: {
     ...(searchText !== "" && { search: searchText }),
-    ...(tag && { tag: tag }),
+    ...(tag && { tag }),
     page,
     perPage,
   },

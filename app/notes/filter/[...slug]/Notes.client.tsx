@@ -15,19 +15,21 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 
 import { MoonLoader } from "react-spinners";
 import { Toaster, toast } from "react-hot-toast";
+import { NoteTag } from "@/types/note";
 
 interface NotesClientProps {
   initialData: FetchNotesResponse;
+  tag?: NoteTag | undefined;
 }
 
-export default function NotesClient({ initialData }: NotesClientProps) {
+export default function NotesClient({ initialData, tag }: NotesClientProps) {
   const [searchText, setSearchText] = useState<string>("");
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["notes", searchText, currentPage],
-    queryFn: () => fetchNotes(searchText, currentPage),
+    queryKey: ["notes", searchText, currentPage, tag],
+    queryFn: () => fetchNotes(searchText, currentPage, 12, tag),
     placeholderData: keepPreviousData,
     initialData,
   });
