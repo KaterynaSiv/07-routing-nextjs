@@ -23,7 +23,6 @@ export default function Header() {
             <Link href="/">Home</Link>
           </li>
           <li>
-            {/* <Link href="/notes">Notes</Link> */}
             <TagsMenu tagsOption={tagsOption} />
           </li>
         </ul>

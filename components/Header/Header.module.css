@@ -32,6 +32,11 @@
   font-size: 1rem;
 }
 
+.navigation li {
+  display: flex;
+  align-items: center;
+}
+
 .navigation li a:hover {
   color: #ddd;
 }
